@@ -101,7 +101,6 @@ def generate_dungeon(
             for x, y in tunnel_between(rooms[-1].center, new_room.center):
                 dungeon.tiles[x, y] = tile_types.floor
 
-        # Finally, append the new room to the list.
         rooms.append(new_room)
 
     return dungeon

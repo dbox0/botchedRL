@@ -6,6 +6,7 @@ from entity import Entity
 from input_handlers import EventHandler
 from procgen import generate_dungeon
 
+
 def main() -> None:
     screen_width = 80
     screen_height = 50
@@ -28,7 +29,7 @@ def main() -> None:
     entities = {npc, player}
 
     game_map = generate_dungeon(
-        max_rooms =max_rooms,
+        max_rooms=max_rooms,
         room_min_size=room_min_size,
         room_max_size=room_max_size,
         map_width=map_width,
@@ -42,7 +43,7 @@ def main() -> None:
         screen_width,
         screen_height,
         tileset=tileset,
-        title="Botched up Roguelike Attempt",
+        title="Botched up attempt at a roguelike",
         vsync=True,
     ) as context:
         root_console = tcod.Console(screen_width, screen_height, order="F")
