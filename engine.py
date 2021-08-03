@@ -25,13 +25,14 @@ class Engine:
                 continue
 
             action.perform(self, self.player)
+            self.update_fov()
 
     def update_fov(self) -> None:
         #Recompute visible area based on player position
         self.game_map.visible[:] = compute_fov(
             self.game_map.tiles["transparent"],
             (self.player.x, self.player.y),
-            radius =8,
+            radius =6,
         )
         # If tile is visible it should be added to explored:
         self.game_map.explored |= self.game_map.visible
