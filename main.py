@@ -10,11 +10,11 @@ from game_map import GameMap
 
 
 def main() -> None:
-    screen_width = 100
-    screen_height = 65
+    screen_width = 80
+    screen_height = 50
 
-    map_width = 100
-    map_height = 60
+    map_width = 80
+    map_height = 50
 
 
     tileset = tcod.tileset.load_tilesheet(

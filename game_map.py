@@ -8,7 +8,7 @@ class GameMap:
         self.width, self.height = width, height
         self.tiles = np.full((width, height), fill_value=tile_types.floor, order="F")
 
-        self.tiles[30:30, 22] = tile_types.wall
+        self.tiles[30:40, 22] = tile_types.wall
 
     def in_bounds(self,x : int, y : int) -> bool:
         return 0 <= x < self.width and 0 <= y < self.height
