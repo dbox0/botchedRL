@@ -4,11 +4,17 @@ import tcod
 from engine import Engine
 from entity import Entity
 from input_handlers import EventHandler
+from game_map import GameMap
+
+
 
 
 def main() -> None:
-    screen_width = 80
-    screen_height = 50
+    screen_width = 100
+    screen_height = 65
+
+    map_width = 100
+    map_height = 60
 
 
     tileset = tcod.tileset.load_tilesheet(
@@ -16,11 +22,21 @@ def main() -> None:
 
     event_handler = EventHandler()
 
+    # ====================================================================================
+    # VARS ================================================================================
+    # TODO:
+    # Move vars into own file
+    #
+
 
     player = Entity(int(screen_height / 2), int(screen_width / 2), "@", (255,255,255))
     npc = Entity(int(screen_width/2 -5), int(screen_width /2),"C",(255,0,0))
     entities={npc,player}
-    engine = Engine(entities=entities,event_handler=event_handler,player=player)
+
+    game_map = GameMap(map_width, map_height)
+    engine = Engine(entities=entities,event_handler=event_handler,game_map = game_map,player=player)
+
+
 
 
     with tcod.context.new_terminal(
